@@ -187,6 +187,8 @@ class vLLMRollout(BaseRollout):
 
         # Offload vllm model to reduce peak memory usage
         if config.free_cache_engine:
+            logger.info(
+                "******************* Free cache engine is enabled, offloading vllm model to CPU to reduce peak memory usage.**************")
             self.inference_engine.sleep(level=1)
 
         kwargs = dict(
